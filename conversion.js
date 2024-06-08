@@ -119,3 +119,24 @@ let index = 0;
 console.log(arr[++index]); // 20: index is incremented before accessing array
 console.log(arr[index++]); // 20: index is accessed, then incremented
 
+console.log(null > 0);    // false
+console.log(null == 0);   // false
+console.log(null >= 0);   // true
+
+console.log(undefined == 0); // false
+console.log(undefined > 0);  // false
+console.log(undefined < 0);  // false
+
+
+
+
+// Loose Equality (==)
+console.log(5 == "5"); // true: The string "5" is converted to the number 5 before comparison.
+console.log(null == undefined); // true: null and undefined are considered equal when using ==.
+console.log(false == 0); // true: false is converted to 0 before comparison.
+
+// Strict Equality (===)
+console.log(5 === "5"); // false: The types are different (number and string).
+console.log(null === undefined); // false: The types are different (object and undefined).
+console.log(false === 0); // false: The types are different (boolean and number).
+console.log(5 === 5); // true: Both the value and type are the same.
