@@ -62,4 +62,60 @@ console.log(typeof undefToBool, undefToBool); // boolean false
 // Booleans can be converted to strings and numbers.
 // Arrays can be converted to strings and sometimes to numbers.
 // Objects can be converted to strings and booleans.
-// null and undefined can be converted to strings, numbers, and booleans. 
+// null and undefined can be converted to strings, numbers, and booleans.   
+
+
+console.log("1" + 2 + 2); // "122"
+console.log("1" + "2" + 2); // "122"
+console.log(1 + 2 + "2"); // "32"
+
+console.log(+true); // 1
+console.log(+""); // 0
+
+//PREFIX AND POSTFIX -->>>
+
+// Initializing variables
+let x = 5;
+let y = 5;
+let z;
+
+// Using prefix in an expression
+console.log("Prefix in Expression:");
+z = ++x + 2; // x is incremented to 6, then 6 + 2 = 8 is assigned to z
+console.log(`x: ${x}, z: ${z}`); // x: 6, z: 8
+
+// Resetting variables
+x = 5;
+y = 5;
+
+// Using postfix in an expression
+console.log("Postfix in Expression:");
+z = y++ + 2; // y is first used as 5, so 5 + 2 = 7 is assigned to z, then y is incremented to 6
+console.log(`y: ${y}, z: ${z}`); // y: 6, z: 7
+
+// Using prefix in a loop
+console.log("Prefix in Loop:");
+for (let i = 0; i < 3; ++i) {
+    console.log(`i: ${i}`); // i increments before the loop body
+}
+
+// Using postfix in a loop
+console.log("Postfix in Loop:");
+for (let j = 0; j < 3; j++) {
+    console.log(`j: ${j}`); // j increments after the loop body
+}
+
+// Combining prefix and postfix in one expression
+console.log("Combining Prefix and Postfix:");
+let p = 10;
+let q = 10;
+let combinedResult = ++p + q++;
+console.log(`p: ${p}, q: ${q}, combinedResult: ${combinedResult}`); // p increments before addition, q increments after
+
+// Using prefix and postfix with array indexing
+console.log("Prefix and Postfix with Array Indexing:");
+let ar = [10, 20, 30, 40];
+let index = 0;
+console.log(arr[++index]); // 20: index is incremented before accessing array
+console.log(arr[index++]); // 20: index is accessed, then incremented
+
