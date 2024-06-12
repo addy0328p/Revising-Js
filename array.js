@@ -137,3 +137,4 @@ let score3 = 300;
 
 // Creating an array from the scores using Array.of
 console.log(Array.of(score1, score2, score3)); // Output: [100, 200, 300]
+
