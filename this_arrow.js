@@ -68,3 +68,18 @@ console.log(addTwo(3, 4)) // { username: 'hitesh' }
 
 // Placeholder for the forEach method
 // myArray.forEach()
+
+
+
+
+// Immediately Invoked Function Expressions (IIFE)
+
+
+(function chai(){
+    // named IIFE
+    console.log(`DB CONNECTED`);
+})();
+
+( (name) => {
+    console.log(`DB CONNECTED TWO ${name}`);
+} )('hitesh')
