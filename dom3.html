@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Ensure the DOM is fully loaded before running the script
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Create a new 'div' element
+            const div = document.createElement('div');
+            console.log(div); // Log the created div to the console
+
+            // Add class name to the div
+            div.className = "main";
+
+            // Generate a random id for the div
+            div.id = (Math.round(Math.random() * 10 + 1));
+
+            // Set an attribute 'title' for the div
+            div.setAttribute("title", "generated title");
+
+            // Style the div
+            div.style.backgroundColor = "red";
+            div.style.padding = "4px"; // Padding should have a unit (e.g., 'px')
+
+            // Create a text node and append it to the div
+            const addText = document.createTextNode("Aditya Pandey");
+            div.appendChild(addText);
+
+            // Append the div to the body
+            document.body.appendChild(div);
+
+            // Log the final div to the console to verify
+            console.log(div);
+
+            // Add an event listener to the div
+            div.addEventListener('click', () => {
+                alert('Div clicked!');
+            });
+
+            // Demonstrate the use of innerText, innerHTML, and textContent
+            const textDiv = document.createElement('div');
+            textDiv.className = 'text-div';
+            textDiv.style.marginTop = '20px';
+
+            // Use innerText to set text content
+            textDiv.innerText = 'This is innerText content';
+            document.body.appendChild(textDiv);
+            console.log('innerText:', textDiv.innerText);
+
+            // Use innerHTML to set HTML content
+            textDiv.innerHTML += '<br><strong>This is innerHTML content</strong>';
+            console.log('innerHTML:', textDiv.innerHTML);
+
+            // Use textContent to set plain text content
+            textDiv.textContent += ' | This is textContent';
+            console.log('textContent:', textDiv.textContent);
+
+            // Create another element to show the difference
+            const anotherDiv = document.createElement('div');
+            anotherDiv.className = 'another-div';
+            anotherDiv.style.marginTop = '20px';
+            anotherDiv.innerHTML = '<span style="color: yellow;">Hello <strong>World</strong></span>';
+            document.body.appendChild(anotherDiv);
+            console.log('anotherDiv innerHTML:', anotherDiv.innerHTML);
+            console.log('anotherDiv innerText:', anotherDiv.innerText);
+            console.log('anotherDiv textContent:', anotherDiv.textContent);
+
+            // Log the child elements of the body
+            console.log('Body children:', document.body.children);
+        });
+    </script>
+</body>
+</html>
