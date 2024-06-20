@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai aur code</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <!-- this is a comment -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+
+    <div id="parent">
+        <p id="first">First child</p>
+        <p id="middle">Second child</p>
+        <p id="last">Third child</p>
+    </div>
+
+    <script>
+        // Select the parent element with class 'parent'
+        const parent = document.querySelector('.parent');
+
+        // Log the children of the parent element
+        console.log('Children of parent:', parent.children);
+
+        // Log the innerHTML of the second child element
+        console.log('InnerHTML of second child:', parent.children[1].innerHTML);
+
+        // Log the innerHTML of all child elements using a loop
+        for (let i = 0; i < parent.children.length; i++) {
+            console.log(`Child ${i + 1} innerHTML:`, parent.children[i].innerHTML);
+        }
+
+        // Change the color of the second child element
+        parent.children[1].style.color = "orange";
+
+        // Log the first and last child elements
+        console.log('First child:', parent.firstElementChild);
+        console.log('Last child:', parent.lastElementChild);
+
+        // Select the first element with class 'day'
+        const dayOne = document.querySelector('.day');
+
+        // Log the first 'day' element
+        console.log('First day element:', dayOne);
+
+        // Log the parent element of the first 'day' element
+        console.log('Parent of first day element:', dayOne.parentElement);
+
+        // Log the next sibling of the first 'day' element
+        console.log('Next sibling of first day element:', dayOne.nextElementSibling);
+
+        // Log all child nodes of the parent element (including comments and text nodes)
+        console.log('NODES:', parent.childNodes);
+
+        // Select the parent element with id 'parent'
+        const parentById = document.getElementById('parent');
+
+        // Log the children of the parent element by id
+        console.log('Children of parent by ID:', parentById.children);
+
+        // Access and log the first child element of the parent by id
+        const firstChild = parentById.firstElementChild;
+        console.log('First child by ID:', firstChild); // <p id="first">First child</p>
+
+        // Access and log the last child element of the parent by id
+        const lastChild = parentById.lastElementChild;
+        console.log('Last child by ID:', lastChild); // <p id="last">Third child</p>
+
+        // Access and log the number of child elements of the parent by id
+        const childCount = parentById.childElementCount;
+        console.log('Child element count by ID:', childCount); // 3
+
+        // Select the middle child element by id
+        const middleChild = document.getElementById('middle');
+
+        // Access and log the next sibling of the middle child
+        const nextSibling = middleChild.nextElementSibling;
+        console.log('Next sibling of middle child by ID:', nextSibling); // <p id="last">Third child</p>
+
+        // Access and log the previous sibling of the middle child
+        const previousSibling = middleChild.previousElementSibling;
+        console.log('Previous sibling of middle child by ID:', previousSibling); // <p id="first">First child</p>
+
+        // Access and log the parent element of the middle child
+        const parentElement = middleChild.parentElement;
+        console.log('Parent of middle child by ID:', parentElement); // <div id="parent">
+    </script>
+</body>
+</html>
