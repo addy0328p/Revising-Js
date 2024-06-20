@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code | DOM</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Function to add a new language using innerHTML
+            function addLanguage(langName) {
+                const li = document.createElement('li');
+                li.innerHTML = `${langName}`;
+                document.querySelector('.language').appendChild(li);
+            }
+
+            addLanguage("Python");
+            addLanguage("TypeScript");
+
+            // Function to add a new language using createTextNode
+            function addOptiLanguage(langName) {
+                const li = document.createElement('li');
+                li.appendChild(document.createTextNode(langName));
+                document.querySelector('.language').appendChild(li);
+            }
+
+            addOptiLanguage('Golang');
+
+            // Editing the second language item
+            const secondLang = document.querySelector("li:nth-child(2)");
+            console.log('Second language before edit:', secondLang.textContent);
+
+            // Replace the second language item with a new one
+            const newLi = document.createElement('li');
+            newLi.textContent = "Mojo";
+            secondLang.replaceWith(newLi);
+
+            console.log('Second language after edit:', newLi.textContent);
+
+            // Editing the first language item using outerHTML
+            const firstLang = document.querySelector("li:first-child");
+            console.log('First language before edit:', firstLang.outerHTML);
+
+            firstLang.outerHTML = '<li>TypeScript</li>';
+            console.log('First language after edit:', document.querySelector("li:first-child").outerHTML);
+
+            // Removing the last language item
+            const lastLang = document.querySelector('li:last-child');
+            console.log('Last language before remove:', lastLang.textContent);
+            lastLang.remove();
+            console.log('Last language after remove:', document.querySelector('li:last-child'));
+
+            // Adding event listeners to the list items
+            document.querySelectorAll('.language li').forEach(item => {
+                item.addEventListener('click', () => {
+                    alert(`You clicked on ${item.textContent}`);
+                });
+            });
+
+            // Cloning a node
+            const clonedNode = document.querySelector('.language li').cloneNode(true);
+            clonedNode.textContent = "Cloned Language";
+            document.querySelector('.language').appendChild(clonedNode);
+
+            // Log all list items
+            console.log('All languages:', document.querySelectorAll('.language li'));
+
+        });
+    </script>
+</body>
+</html>
