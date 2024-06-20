@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getElementById Example</title>
+    <style>
+        .highlight {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="header">Hello, World!</h1>
+    <button id="changeColorButton">Change Header Color</button>
+
+    <script>
+        // Access the element with id "header"
+        var headerElement = document.getElementById('header');
+        
+        // Log the element to the console
+        console.log(headerElement);
+        
+        // Function to change the background color of the header
+        function changeHeaderColor() {
+            headerElement.classList.toggle('highlight');
+        }
+
+        // Add an event listener to the button to call the function when clicked
+        document.getElementById('changeColorButton').addEventListener('click', changeHeaderColor);
+    </script>
+
+
+
+
+<div id="example1">Hello <span style="display: none;">World</span>!</div>
+<script>
+    var element = document.getElementById('example1');
+    console.log(element.innerText); // Outputs: "Hello !"
+    element.innerText = 'New Text';
+    console.log(element.innerHTML); // Outputs: "New Text"
+</script>
+
+
+<div id="example2">Hello <span>World</span>!</div>
+<script>
+    var element = document.getElementById('example2');
+    console.log(element.innerHTML); // Outputs: "Hello <span>World</span>!"
+    element.innerHTML = '<b>New</b> <i>Content</i>';
+    console.log(element.innerHTML); // Outputs: "<b>New</b> <i>Content</i>"
+</script>
+
+
+
+<div id="example3">Hello <span style="display: none;">World</span>!</div>
+<script>
+    var element = document.getElementById('example3');
+    console.log(element.textContent); // Outputs: "Hello World!"
+    element.textContent = 'New Plain Text';
+    console.log(element.innerHTML); // Outputs: "New Plain Text"
+</script>
+
+
+
+
+
+
+<!-- innerText:
+
+Takes CSS into account (e.g., display: none elements are not included).
+Represents the visible text.
+Triggers reflow and repaint (can be slower).
+innerHTML:
+
+Represents HTML content including tags.
+Used to get or set HTML structure inside an element.
+Does not take CSS into account (raw HTML).
+textContent:
+
+Includes all text content, even hidden by CSS.
+Returns plain text (no HTML tags).
+Faster than innerText as it doesn't trigger reflow.
+
+ -->
+
+
+
+
+ <h1 class="header">Hello, World!</h1>
+ <p id="intro">This is an introduction paragraph.</p>
+ <button class="btn">Click Me</button>
+ <button class="btn special">Special Button</button>
+
+ <script>
+     // Select the first element with the class "header"
+     var headerElement = document.querySelector('.header');
+     console.log(headerElement); // <h1 class="header">Hello, World!</h1>
+
+     // Select the element with the id "intro"
+     var introElement = document.querySelector('#intro');
+     console.log(introElement); // <p id="intro">This is an introduction paragraph.</p>
+
+     // Select the first button element
+     var firstButton = document.querySelector('button');
+     console.log(firstButton); // <button class="btn">Click Me</button>
+     firstButton.style.backgroundColor="red";
+     firstButton.style.padding="6";
+
+     // Select the button with both the class "btn" and "special"
+     var specialButton = document.querySelector('.btn.special');
+     console.log(specialButton); // <button class="btn special">Special Button</button>
+
+     // Apply a class to an element
+     headerElement.classList.add('highlight');
+ </script>
+
+
+<ul id="itemList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+    <li>Item 6</li>
+</ul>
+<script>
+    // Select all list items in the unordered list with id "itemList"
+    var listItems = document.querySelectorAll('#itemList li');
+    
+    // Log the NodeList to the console
+    console.log(listItems); // NodeList of <li> elements
+
+    // Highlight all even-numbered items (1-based index)
+    listItems.forEach(function(item, index) {
+        if ((index + 1) % 2 === 0) {
+            item.classList.add('highlight');
+        }
+        listItems[2].style.color='red';
+    });
+</script>
+
+</body>
+</html>
