@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    <!-- Status descriptions for XMLHttpRequest states -->
+    0   UNSENT  Client has been created. open() not called yet.
+    1   OPENED  open() has been called.
+    2   HEADERS_RECEIVED  send() has been called, and headers and status are available.
+    3   LOADING Downloading; responseText holds partial data.
+    4   DONE    The operation is complete.
+</body>
+<script>
+    // URL of the GitHub API to fetch user data
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+    
+    // Create a new XMLHttpRequest object
+    const xhr = new XMLHttpRequest();
+    
+    // Initialize a GET request to the specified URL
+    xhr.open('GET', requestUrl);
+    
+    // Set up a function to handle the state changes of the request
+    xhr.onreadystatechange = function() {
+        // Log the current readyState to the console
+        console.log(xhr.readyState);
+        
+        // Check if the request is complete
+        if (xhr.readyState === 4) {
+            // Parse the response text as JSON
+            const data = JSON.parse(this.responseText);
+            
+            // Log the type of the data (should be 'object')
+            console.log(typeof data);
+            
+            // Log the number of followers
+            console.log(data.followers);
+        }
+    };
+    
+    // Send the request
+    xhr.send();
+</script>
+</html>
