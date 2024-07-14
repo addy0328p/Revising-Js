@@ -6,7 +6,7 @@ const randomColor = function () {
       color += hex[Math.floor(Math.random() * 16)]; // Append a random character from the hex string
     }
     return color; // Return the generated color
-};
+}
   
 let intervalId; // Variable to store the interval ID
 
