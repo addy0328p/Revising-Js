@@ -28,20 +28,7 @@
         // Log the current readyState to the console
         console.log(xhr.readyState);
         
-        // Check if the request is complete
-        if (xhr.readyState === 4) {
-            // Parse the response text as JSON
-            const data = JSON.parse(this.responseText);
-            
-            // Log the type of the data (should be 'object')
-            console.log(typeof data);
-            
-            // Log the number of followers
-            console.log(data.followers);
-        }
-    };
-    
-    // Send the request
-    xhr.send();
-</script>
-</html>
+    fetch(requestUrl)
+    .then(response => response.json())
+    .then(data => console.log(data.followers))
+    .catch(error => console.error("Error:", error));
