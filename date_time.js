@@ -14,10 +14,10 @@ console.log(myDate.toLocaleString());
 console.log(typeof(myDate));
 
 // Create a new Date object for January 24, 2024
-let createDate = new Date(2024, 0, 24);
+let createDate = new Date(2024, 0, 24,5,3);
 
 // Log the string representation of the createDate (without time)
-console.log(createDate.toDateString());
+console.log(createDate.toLocaleString());
 
 let cdate=new Date("06-12-2024");
 
